@@ -1,1 +1,123 @@
+titles{
+    margin: auto;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.divCSS
+{
+    width: 100%;
+    height: auto;
+    padding-top: 20px;	
+}
+
+.body
+{
+    background-color: #FDB927;
+}
+
+.body2
+{
+    background-color: #552583;
+}
+
+.divCSS2
+{
+    width: 50%;
+    height: auto;
+    padding-top: 20px;	
+	
+}
+
+.imgCSS
+{
+    width: 100%;
+    height: auto;
+    margin-top: 20px
+}
+
+.captionCSS
+{
+	text-align: center;
+	color: #000000;
+}
+
+.favdiv{
+    margin-top: 10px;
+}
+.containMe
+{
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 33% 33% 33%;
+    padding: 10px;
+}
+
+.box
+{
+    background-color: #552583;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 3px;
+    border: 3px;
+}
+
+#button
+{
+    color: white;
+    border-style: outset;
+    background-color: #006BB6;
+}
+
+.button:hover
+{
+    background-color: #5D76A9;
+    display:block;
+}
+
+.button:focus
+{
+    border-style:inset;
+}
+
+#theDropDownButtonDiv
+{
+    width: auto;
+    right: 0;
+}
+
+#theDropDownDiv
+{
+    display: none;
+    border-style:outset;
+    width: 100px;
+    background-color: white;
+    color: black;
+    position:absolute;
+}
+
+div:hover #theDropDownDiv
+{
+    display: block;
+}
+
+a
+{
+    display:block;
+    text-decoration: underline;
+    color: SeaGreen;
+    text-align: center;
+}
+
+a:hover
+{
+    color: #F5B112;
+    cursor: pointer;
+}
+
+a:visited
+{
+    color: #12173F;
+	
+}
 

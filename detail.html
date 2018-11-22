@@ -1,1 +1,156 @@
+<!DOCTYPE html>
 
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nino's detail page</title>
+  <link rel="stylesheet" href="p4.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script> 
+ 
+  $( function() { 
+    
+    $("#u").click(function(){
+        
+        var h = "phase4.html"; 
+        console.log(h);
+        window.location.href = h;
+    });
+    
+    var url = window.location.href;
+    console.log("url = " + url);
+    var x = breakUpURLParameters(url);
+      console.log(x.search);
+      console.log("img url  = " + x.search.img); 
+	  
+    var t = document.getElementById("effectDiv");
+	
+    var y = document.createElement("img");
+	var h = document.createElement("h1");
+	var p = document.createElement("p");
+	var h2 = document.createElement("h2");
+	var pDiv = document.createElement("div");
+	
+	
+	pDiv.setAttribute("id", "thumb");
+        y.setAttribute("src", x.search.img); 
+        y.setAttribute("class", "divCSS"); 
+        y.setAttribute("class", "divCSS2"); 
+	
+	var node1 = document.createTextNode(decodeURI(x.search.captions));
+	var node2 = document.createTextNode(decodeURI(x.search.description));
+	var node3 = document.createTextNode("Description:");
+	
+	h.appendChild(node1);
+	p.appendChild(node2);
+	h2.appendChild(node3);
+	
+	pDiv.appendChild(h);
+	t.appendChild(pDiv);
+        t.appendChild(y);
+	t.appendChild(h2);
+	t.appendChild(p);
+	
+	//Cookies	
+	if (document.cookie.split(';').filter(function(item){return item.indexOf('imgFile=pic1.png') >= 0}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			var thumbDiv = document.getElementById("thumb");
+			thumbDiv.appendChild(thumb);
+			}
+			
+	else if (document.cookie.split(';').filter(function(item){return item.indexOf('imgFile=pic2.png') >= 0}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			var thumbDiv = document.getElementById("thumb");
+			thumbDiv.appendChild(thumb);
+			}
+	else if (document.cookie.split(';').filter(function(item){return item.indexOf('imgFile=pic3.png') >= 0}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			var thumbDiv = document.getElementById("thumb");
+			thumbDiv.appendChild(thumb);
+			}			
+	else if (document.cookie.split(';').filter(function(item){return item.indexOf('imgFile=pic4.png') >= 0}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			var thumbDiv = document.getElementById("thumb");
+			thumbDiv.appendChild(thumb);
+			}	
+	else if (document.cookie.split(';').filter(function(item){return item.indexOf('imgFile=pic5.png') >= 0}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			var thumbDiv = document.getElementById("thumb");
+			thumbDiv.appendChild(thumb);
+			}	
+        else if (document.cookie.split(';').filter(function(item){return item.indexOf('imgFile=pic6.png') >= 0}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			var thumbDiv = document.getElementById("thumb");
+			thumbDiv.appendChild(thumb);
+			}		
+	//cookies
+        function breakUpURLParameters(url) {        
+        var link = document.createElement('a');
+        link.setAttribute('href', url);
+        console.log("path variable is " + url);
+       
+        return {
+            host:     link.hostname,  
+            port:     link.port,      
+            search:   mapMaker(link.search), 
+            path:     link.pathname,  
+            protocol: link.protocol   
+        }
+    }
+
+      function mapMaker(search, preserveDuplicates) { 
+      preserveDuplicates = preserveDuplicates || false;  
+
+      var outputNoDupes = {};
+      var returnableArray = [];  
+
+    
+      if(!search) throw new Error('mapMaker: your search input param is misformed?');
+
+      
+      search = search.split('?')[1];
+
+     
+      search = search.split('&');
+
+     
+      returnableArray = search.map(function(keyval){
+                                   var out = {};
+                                   keyval = keyval.split('=');
+                                   out[keyval[0]] = keyval[1];
+                                   outputNoDupes[keyval[0]] = keyval[1]; 
+                                   return out;
+                                   });
+                                   return (preserveDuplicates) ? returnableArray : outputNoDupes;
+  }
+});
+</script>
+</head>
+<body class="body2">
+  <div id="effectDiv" class="imgCSS">
+    <button id="u">back</button>
+  </div>
+
+</body>
+</html>

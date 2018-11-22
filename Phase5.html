@@ -1,10 +1,401 @@
-class galleryItem = {var name; var caption, var imgUrl; var description;}
-galleryItem itemOne = {"", "", "", ""};
-galleryItem itemTwo = {"", "", "", ""};
 
-var items = [itemOne, itemTwo];
-for (var i = 0; i<=items.length; i++)
-  {var j = document.createElement("div");
-   j.setAttribute("class", "card");
-  } 
+<html>
+<head>
+    
+    <title>Nino's phase 4</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+    </script>
+	<link rel = "stylesheet" type = "text/css" href = "p4.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+    <body class="body"> 
+        
+        <div class ="jumbotron jumbotron-fluid">
+        <h1>Nino Flores Phase 4</h1>
+        <nav class="navbar navbar-light bg-light">
+            <a class="home" href="phase4.html">Home</a>
+            <div id = "theDropDownButtonDiv">      
+            <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" data-placement="top" title="Check out other great pages!">Navigation</button>
+                <div id = "theDropDownDiv">
+			<a href="#">Zaid</a>
+			<a href="#">Andrews</a>
+			<a href="https://s3.amazonaws.com/zehongzhan3/page11.html">Zehong</a>
+		</div>
+	</div>	
+        </nav>
+	
+	</div>
+        
+	<script>
+	$(document).ready( function() { 
+		var images = ["pic1.png", "pic2.png", "pic3.png", "pic4.png", "pic5.png","pic6.png"];
+		var Captions = ["Kobe Bryant", "Shaquille O'Neal", "Magic Johnson", "Kareem Abdul-Jabbar", "Jerry West", "Wilt Chamberlain"];
+		var Description = ["Your favorite Laker is Kobe Bryant", "Your favorite Laker is Shaquille O'Neal", "Your favorite Laker is Magic Johnson", "Your favorite Laker is Kareem Abdul-Jabbar", 
+                    "Your favorite Laker is Jerry West","Your favorite Laker is Wilt Chamberlain"];
+		var idNum = ["1", "2", "3", "4", "5","6"];
+		
+			
+		var url;
+		var favButton;
+		var unfavButton;
+		
+		var largeDiv = document.createElement("div");
+		largeDiv.setAttribute("class", "containMe");
+		document.body.appendChild(largeDiv);
+		
+		for (var i = 0; i < images.length; i++)
+		{
+			console.log("image " + i + " is " + images[i]);
+			url = "https://s3-us-west-2.amazonaws.com/bucket311102018/" + images[i]; 
+			
+			var Captiones = Captions[i]; 
+			var urlOfDetailPage = "detail4.html?" + "img=" + url + "&" + "captions=" + Captions[i] + "&" + "description=" + Description[i]; //Make this into an actual url when uploaded to amazon.
+
+			var divImage = document.createElement("div");
+			divImage.setAttribute("class", "divCSS");
+            
+			
+			var imageInsert = document.createElement("img");
+			imageInsert.setAttribute("class", "imgCSS");
+			imageInsert.setAttribute("src", url); 
+			
+			var imgClick = document.createElement("a");
+			imgClick.setAttribute("href", urlOfDetailPage); 
+			imgClick.appendChild(imageInsert); 
+			divImage.appendChild(imgClick);  
+			
+			var divCaption = document.createElement("div");
+			divCaption.setAttribute("class", "captionCSS");
+			var captionContent = Captions[i];
+			var node = document.createTextNode(captionContent);
+			
+		
+			
+			var h3Caption = document.createElement("h3");
+			h3Caption.appendChild(node);
+			divCaption.appendChild(h3Caption);
+			
+			var uniDiv = document.createElement("div");
+			uniDiv.setAttribute("class","box");
+			
+			
+			
+			uniDiv.appendChild(divCaption);
+			
+			favButton = document.createElement("button");
+			favButton.setAttribute("id", "favButton" + idNum[i]);
+			var fav = "Favorite";
+			var node2 = document.createTextNode(fav);
+			favButton.appendChild(node2);
+                        divImage.setAttribute("class", "botton");
+            
+			
+			unfavButton = document.createElement("button");
+			unfavButton.setAttribute("id", "unfavButton" + idNum[i]);
+			var unfav = "Unfavorite";
+			var node3 = document.createTextNode(unfav);
+			unfavButton.appendChild(node3);
+			
+			var favDiv = document.createElement("div");
+			favDiv.setAttribute("id", "favDiv" + idNum[i]);
+			favDiv.appendChild(favButton);
+			
+			var unfavDiv = document.createElement("div");
+			unfavDiv.appendChild(unfavButton);
+			
+			uniDiv.appendChild(favDiv);
+			uniDiv.appendChild(unfavDiv);
+			uniDiv.appendChild(divImage); 
+			
+			largeDiv.appendChild(uniDiv);
+			
+			
+			
+			
+		}
+		
+		$("#favButton1").click(function()
+		{
+                        console.log("Black Mamba");
+			alert("You have chosen Kobe Bryant as your favorite Laker.");
+			checkCookie1();
+		});
+		$("#unfavButton1").click(function()
+		{
+			deleteCookie("imgFile");
+		});	
+		$("#favButton2").click(function()
+		{
+			console.log("Big Diesel");
+			alert("You have chosen Shaquille O'Neal as your favorite Laker.");
+			checkCookie2();
+		});
+		$("#unfavButton2").click(function()
+		{
+			deleteCookie("imgFile");
+		});
+		$("#favButton3").click(function()
+		{
+			console.log("Earvin Magic");
+			alert("You have chosen Magic Johnson as your favorite Laker.");
+			checkCookie3();
+		});
+		$("#unfavButton3").click(function()
+		{
+			deleteCookie("imgFile");
+		});
+		$("#favButton4").click(function()
+		{
+			console.log("The Captain");
+			alert("You have chosen Kareem Abdul-Jabbar as your favorite Laker.");
+			checkCookie4();
+		});
+		$("#unfavButton4").click(function()
+		{
+			deleteCookie("imgFile");
+		});
+		$("#favButton5").click(function()
+		{
+			console.log("The Logo");
+			alert("You have chosen Jerry West as your favorite Laker.");
+			checkCookie5();
+		});
+		$("#unfavButton5").click(function()
+		{
+			deleteCookie("imgFile");
+		});
+		$("#favButton6").click(function()
+		{
+			console.log("Wilt the Stilt");
+			alert("You have chosen Wilt Chamberlain as your favorite Laker.");
+			checkCookie6();
+		});
+		$("#unfavButton6").click(function()
+		{
+			deleteCookie("imgFile");
+		});
+	 	 
+            //removes an element.	 
+		function removeElement(elementId) 
+		{
+			// Removes an element from the document
+			var element = document.getElementById(elementId);
+			element.parentNode.removeChild(element);
+		}
+		
+		//replaces the favorite button with a thumbs up.		
+		if (document.cookie.split(';').filter(function(item) 
+		{
+			return item.indexOf('imgFile=pic1.png') >= 0
+			}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			removeElement("favButton1");
+			var divAdd = document.getElementById("favDiv1");
+			divAdd.appendChild(thumb);
+			}				
+		else if (document.cookie.split(';').filter(function(item) 
+		{
+				return item.indexOf('imgFile=pic2.png') >= 0
+			}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			removeElement("favButton2");
+			var divAdd = document.getElementById("favDiv2");
+			divAdd.appendChild(thumb);
+			}			
+		else if (document.cookie.split(';').filter(function(item) 
+		{
+				return item.indexOf('imgFile=pic3.png') >= 0
+			}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			removeElement("favButton3");
+			var divAdd = document.getElementById("favDiv3");
+			divAdd.appendChild(thumb);
+			}						
+		else if (document.cookie.split(';').filter(function(item) 
+		{
+				return item.indexOf('imgFile=pic4.png') >= 0
+			}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			removeElement("favButton4");
+			var divAdd = document.getElementById("favDiv4");
+			divAdd.appendChild(thumb);
+			}			
+		else if (document.cookie.split(';').filter(function(item) 
+		{
+				return item.indexOf('imgFile=pic5.png') >= 0
+			}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			removeElement("favButton5");
+			var divAdd = document.getElementById("favDiv5");
+			divAdd.appendChild(thumb);
+			}		
+                else if (document.cookie.split(';').filter(function(item) 
+		{
+				return item.indexOf('imgFile=pic6.png') >= 0
+			}).length) 
+			{
+			var thumb = document.createElement("i");
+			thumb.setAttribute("class", "fa fa-thumbs-o-up");
+			thumb.setAttribute("style","font-size:20px;color:black;");
+			removeElement("favButton6");
+			var divAdd = document.getElementById("favDiv6");
+			divAdd.appendChild(thumb);
+			}
+			
+		//cookie functions		
+		function setCookie(cname,cvalue,exdays) 
+		{
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			var expires = "expires=" + d.toGMTString();
+			document.cookie = cname+"="+cvalue+"; "+expires + ";path=/;";
+		}				
+		function getCookie(cname) 
+		{
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i=0; i<ca.length; i++) 
+			{
+				var c = ca[i];
+				while (c.charAt(0)==' ') c = c.substring(1);
+				if (c.indexOf(name) == 0) 
+				{
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+		
+		//sets each cookie
+		function checkCookie1() 
+		{
+			var user=getCookie("imgFile");
+			if (user != "") 
+			{
+				console.log("cookie found");
+			} 
+			else 
+			{
+			   user = "pic1.png";
+			   if (user != "" && user != null) 
+			   {
+				   setCookie("imgFile", user, 30);
+			   }
+			}
+		}		
+		function checkCookie2() 
+		{
+			var user=getCookie("imgFile");
+			if (user != "") 
+			{
+				console.log("cookie found");
+			} 
+			else 
+			{
+			   user = "pic2.png";
+			   if (user != "" && user != null) 
+			   {
+				   setCookie("imgFile", user, 30);
+			   }
+			}
+		}		
+		function checkCookie3() 
+		{
+			var user=getCookie("imgFile");
+			if (user != "") 
+			{
+				console.log("cookie found");
+			} 
+			else 
+			{
+			   user = "pic3.png";
+			   if (user != "" && user != null) 
+			   {
+				   setCookie("imgFile", user, 30);
+			   }
+			}
+		}		
+		function checkCookie4() 
+		{
+			var user=getCookie("imgFile");
+			if (user != "") 
+			{
+				console.log("cookie found");
+			} 
+			else 
+			{
+			   user = "pic4.png";
+			   if (user != "" && user != null) 
+			   {
+				   setCookie("imgFile", user, 30);
+			   }
+			}
+		}		
+		function checkCookie5() 
+		{
+			var user=getCookie("imgFile");
+			if (user != "") 
+			{
+				console.log("cookie found");
+			} 
+			else 
+			{
+			   user = "pic5.png";
+			   if (user != "" && user != null) 
+			   {
+				   setCookie("imgFile", user, 30);
+			   }
+			}
+		}		
+                function checkCookie6() 
+		{
+			var user=getCookie("imgFile");
+			if (user != "") 
+			{
+				console.log("cookie found");
+			} 
+			else 
+			{
+			   user = "pic6.png";
+			   if (user != "" && user != null) 
+			   {
+				   setCookie("imgFile", user, 30);
+			   }
+			}
+		}
+        
+		//deletes cookie		
+		function deleteCookie(cname) 
+		{
+			var d = new Date(); //Create an date object
+			d.setTime(d.getTime() - (1000*60*60*24)); //Set the time to the past. 1000 milliseonds = 1 second
+			var expires = "expires=" + d.toGMTString(); //Compose the expirartion date
+			window.document.cookie = cname+"="+"; "+expires + ";path=/;";//Set the cookie with name and the expiration date
+		 
+		}
+		
+	});
+		
+	</script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	</body>
                                 

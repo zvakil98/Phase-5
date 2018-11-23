@@ -3,9 +3,10 @@
 <head>
     
     <title>Nino's phase 4</title>
+    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
     </script>
-	<link rel = "stylesheet" type = "text/css" href = "p4.css">
+	<link rel = "stylesheet" type = "text/css" href = "phase_5.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
@@ -14,19 +15,60 @@
         
         <div class ="jumbotron jumbotron-fluid">
         <h1>Nino Flores Phase 4</h1>
+             <p>
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Export for more details
+          </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            NBA is a confusing bunch, especially if you re a new player.  The Summoner s Rift map can be a daunting place for those starting out on their MOBA journeys, especially when you find yourself dying over and over. With over 130 champions in the game, the freedom of choice can feel overwhelming. It s going to take time to get to grips with how every champion plays, how they work together, and how to play against them. Luckily, the best way to learn all of this is to play the game and have fun! <br>
+          </div>
+        </div>
         <nav class="navbar navbar-light bg-light">
+            
             <a class="home" href="phase4.html">Home</a>
+            
             <div id = "theDropDownButtonDiv">      
             <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" data-placement="top" title="Check out other great pages!">Navigation</button>
                 <div id = "theDropDownDiv">
 			<a href="#">Zaid</a>
 			<a href="#">Andrews</a>
-			<a href="https://s3.amazonaws.com/zehongzhan3/page11.html">Zehong</a>
+			<a href="https://s3.amazonaws.com/zehongphase4/page11.html">Zehong</a>
 		</div>
 	</div>	
+            
         </nav>
 	
 	</div>
+        
+         <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="https://s3.amazonaws.com/zehongphase4/page11.html" aria-label="Previous">
+        <span aria-hidden="true">First page</span>
+      </a>
+    </li>
+      
+    <li class="page-item"><a class="page-link" href="https://s3.amazonaws.com/zehongphase4/jinx1.html">1</a></li>
+      
+    <li class="page-item"><a class="page-link"  href="https://s3.amazonaws.com/zehongphase4/miss2.html">2</a></li>
+      
+    <li class="page-item"><a class="page-link"   href="https://s3.amazonaws.com/zehongphase4/ahri3.html">3</a></li>
+      
+    
+        <li class="page-item"><a class="page-link"   href="https://s3.amazonaws.com/zehongphase4/kata4.html">4</a></li>
+      
+    
+        <li class="page-item"><a class="page-link"   href="https://s3.amazonaws.com/zehongphase4/riven5.html">5</a></li>
+      
+    
+        <li class="page-item"><a class="page-link"   href="https://s3.amazonaws.com/zehongphase4/kai6.html">6</a></li>
+      
+   
+    
+  </ul>
+</nav>
         
 	<script>
 	$(document).ready( function() { 
@@ -76,7 +118,8 @@
 			var h3Caption = document.createElement("h3");
 			h3Caption.appendChild(node);
 			divCaption.appendChild(h3Caption);
-			
+			h3Caption.setAttribute("class", "card")
+            
 			var uniDiv = document.createElement("div");
 			uniDiv.setAttribute("class","box");
 			
@@ -90,7 +133,7 @@
 			var node2 = document.createTextNode(fav);
 			favButton.appendChild(node2);
                         divImage.setAttribute("class", "botton");
-            
+             favButton.setAttribute("class","btn btn-outline-primary");
 			
 			unfavButton = document.createElement("button");
 			unfavButton.setAttribute("id", "unfavButton" + idNum[i]);
@@ -98,6 +141,8 @@
 			var node3 = document.createTextNode(unfav);
 			unfavButton.appendChild(node3);
 			
+            unfavButton.setAttribute("class","btn btn-primary my-2");
+            
 			var favDiv = document.createElement("div");
 			favDiv.setAttribute("id", "favDiv" + idNum[i]);
 			favDiv.appendChild(favButton);
